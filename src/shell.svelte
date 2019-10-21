@@ -1,24 +1,11 @@
 <script>
   /** Imports */
-  import { onMount, onDestroy } from "svelte";
   import Router from "svelte-spa-router";
-  import Navbar from "./components/navbar.svelte";
-  import { Home, About } from "./views";
-
-  let title;
-  let subtitle;
-  let content;
+  import { Home } from "./views";
 
   const routes = {
-    '/:name?': Home,
-    '/about': About,
+    "/": Home,
   };
-
-  // Navbar items
-  let navBarRightItems = [
-    { path: "/", text: "Home" },
-    { path: "/about", text: "About" }
-  ];
 </script>
 
 <style>
@@ -42,7 +29,6 @@
 
 <!-- Simulate a Shell Architecture -->
 <div class="shell">
-  <Navbar rightItems={navBarRightItems} />
   <div class="container">
     <Router {routes} />
   </div>

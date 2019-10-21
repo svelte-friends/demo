@@ -1,6 +1,5 @@
 <script>
   import Button from "@packages/shared/button.svelte";
-  export let params = {};
 </script>
 
 <style>
@@ -14,8 +13,8 @@
 </style>
 
 <div class="container">
-  <h1>Welcome {params.name || 'Unknown'} Skywallker!</h1>
-  <Button/>
+  <h1>Demo component</h1>
+  <Button />
   <img
     width="50%"
     style="padding:20px"
