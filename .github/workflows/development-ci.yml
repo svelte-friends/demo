@@ -1,0 +1,25 @@
+name: Development
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    name: Build development
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node_version: [10]
+        os: [ubuntu-latest]
+    
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: build
+        run: |
+          yarn
+          yarn dev
