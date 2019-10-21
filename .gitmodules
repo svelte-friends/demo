@@ -1,3 +1,0 @@
-[submodule "packages/shared"]
-	path = shared
-	url = https://github.com/svelte-friends/shared.git
