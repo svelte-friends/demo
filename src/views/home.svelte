@@ -1,23 +1,19 @@
 <script>
   import Button from "@packages/shared/button.svelte";
+  import Label from "@packages/shared/label.svelte"
 </script>
-
 <style>
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  h2 {
     padding: 20px;
+    padding-bottom: 10px;
+    background-color: #1481c4;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 </style>
-
-<div class="container">
-  <h1>Demo component</h1>
+  <h2>Button example</h2>
   <Button />
-  <img
-    width="50%"
-    style="padding:20px"
-    src="https://svelte.dev/svelte-logo-outline.svg"
-    alt="Svelte logo" />
-</div>
+
+  <h2>Label example</h2>
+  <Label text={'Danger'} />

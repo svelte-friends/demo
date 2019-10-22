@@ -4,26 +4,27 @@
   import { Home } from "./views";
 
   const routes = {
-    "/": Home,
+    "/": Home
   };
 </script>
 
 <style>
   :root {
     --var-color-primary: orange;
+    --var-color-red: #fb4949;
+    --var-color-yellow: #ffeb00;
+    --var-color-green: #00e358;
+    --var-color-purple: #624695;
+    --text-color-white: #ffffff;
+    --text-font-family: "Poppins", sans-serif;
   }
 
   :global(html, body, .shell) {
     height: 100%;
     width: 100%;
     font-family: "Open Sans", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--text-font-family);
   }
-  .shell {
-    color: aliceblue; /** TODO: remove */
-    background: #363636;
-    overflow: hidden;
-  }
-
   @import "./reset.css";
 </style>
 
