@@ -30,7 +30,5 @@
 
 <!-- Simulate a Shell Architecture -->
 <div class="shell">
-  <div class="container">
-    <Router {routes} />
-  </div>
+  <Router {routes} />
 </div>
