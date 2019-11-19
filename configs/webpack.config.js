@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const mode = process.argv[process.argv.indexOf("--mode") + 1];
@@ -17,7 +18,7 @@ const config = {
             svelte: path.resolve('node_modules', 'svelte'),
             '@packages': path.resolve(__dirname, '../packages'),
         },
-        extensions: ['.mjs', '.js', '.svelte', '.ts', '.js'],
+        extensions: ['.mjs', '.js', '.svelte', '.ts', '.js', '.css'],
         mainFields: ['svelte', 'browser', 'module', 'main']
     },
     output: {
@@ -60,10 +61,15 @@ const config = {
         ]
     },
     mode,
+
     plugins: [
         // new clean up dir plugin
-        new CleanWebpackPlugin({ dangerouslyAllowCleanPatternsOutsideProject: true, verbose: false, dry: false }),
+        // new CleanWebpackPlugin({ dangerouslyAllowCleanPatternsOutsideProject: true, verbose: false, dry: false }),
+        new CleanWebpackPlugin({ dangerouslyAllowCleanPatternsOutsideProject: true, verbose: false, dry: false, cleanStaleWebpackAssets: false, protectWebpackAssets: false }),
 
+        new CopyPlugin([
+            { from: 'src/codemirror', to: 'codemirror' },
+        ]),
         new MiniCssExtractPlugin({
             filename: '[name].css'
         }),
