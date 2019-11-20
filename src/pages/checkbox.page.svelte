@@ -1,19 +1,19 @@
 <script>
   import CheckBox from '@packages/shared/checkbox.svelte';
 
-  let codeDemo = `
-  // Basic checkbox
+  let codeDemoBasic = `
    <CheckBox />
    <CheckBox label="Checkbox" checked />
+  `;
 
-  // Checkbox color
+   let codeDemoColor = `
    <CheckBox label="Checkbox" color="red" />
    <CheckBox label="Checkbox" checked color="red" />
+  `;
 
-  // Disabled state
+  let codeDemoDisabled = `
    <CheckBox label="Disabled" checked disabled />
    <CheckBox label="Disabled" disabled />
-   
   `;
 
   let attributes = [
@@ -92,6 +92,9 @@
       <CheckBox label="Checkbox" checked />
     </div>
   </div>
+  <pre>
+    <code>{codeDemoBasic}</code>
+  </pre>
 
   <h5>Checkbox colors</h5>
   <div class="example">
@@ -102,6 +105,10 @@
       <CheckBox label="Checkbox" checked color="red" />
     </div>
   </div>
+
+  <pre>
+    <code>{codeDemoColor}</code>
+  </pre>
 
   <h5>Disabled state</h5>
   <div class="example">
@@ -114,5 +121,7 @@
   </div>
 
   <h5>Example</h5>
-  <textarea id="code" name="code">{codeDemo}</textarea>
+  <pre>
+    <code>{codeDemoDisabled}</code>
+  </pre>
 </div>
