@@ -5,6 +5,8 @@
   const routes = {
     '/components/button': page.Button,
     '/components/checkbox': page.Checkbox,
+    '/components/switch': page.Switch,
+
   };
 
   const urlList = Object.keys(routes).map(item => ({
