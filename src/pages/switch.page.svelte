@@ -1,46 +1,46 @@
 <script>
-  import CheckBox from '@packages/shared/checkbox.svelte';
+  import Switch from '@packages/shared/switch.svelte';
 
   let codeDemoBasic = `
-   <CheckBox />
-   <CheckBox label="Checkbox" checked />
+    <Switch />
+    <Switch on />
   `;
 
-   let codeDemoColor = `
-   <CheckBox label="Checkbox" color="red" />
-   <CheckBox label="Checkbox" checked color="red" />
+  let codeDemoColor = `
+     <Switch color="grey" on />
+     <Switch buttonColor="grey" on /> 
   `;
 
   let codeDemoDisabled = `
-   <CheckBox label="Disabled" checked disabled />
-   <CheckBox label="Disabled" disabled />
+     <Switch disabled />
+     <Switch disabled on />
   `;
-
+  
   let attributes = [
     {
-      parameter: 'label',
-      description: 'We use to define a text.',
-      type: 'String',
-      optionalValue: '---',
-      defaultValuie: '---',
-    },
-    {
-      parameter: 'checked',
-      description: 'We use to define if checked.',
+      parameter: 'on',
+      description: 'Usamos para definir o botão a direita.',
       type: 'Bolean',
       optionalValue: '---',
       defaultValuie: 'false',
     },
     {
       parameter: 'color',
-      description: 'We use to define a color.',
+      description: 'Usamos para definir uma cor para o switch.',
       type: 'String',
       optionalValue: 'true',
-      defaultValuie: '#624695',
+      defaultValuie: '#b1d660',
+    },
+    {
+      parameter: 'buttonColor',
+      description: 'Usamos para definir uma cor para o botão.',
+      type: 'String',
+      optionalValue: 'true',
+      defaultValuie: '#e0fe9f',
     },
     {
       parameter: 'disabled',
-      description: 'We use to define if disabled.',
+      description: 'Usamos para definir se desativado.',
       type: 'Bolean',
       optionalValue: 'true',
       defaultValuie: 'false',
@@ -49,17 +49,17 @@
 </script>
 
 <div class="content">
-  <h2>Checkbox</h2>
-  <p>Provide multiple checkboxes for multiple selections.</p>
-  <h4>Attributes</h4>
+  <h2>Switch</h2>
+  <p>Alterna para ativar ou desativar o estado de uma única configuração.</p>
+  <h4>Atributos</h4>
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th>Parameter</th>
-        <th>description</th>
-        <th>type</th>
-        <th>optional value</th>
-        <th>default value</th>
+        <th>Parâmetro</th>
+        <th>descrição</th>
+        <th>tipo</th>
+        <th>valor opcional</th>
+        <th>valor padrão</th>
       </tr>
     </thead>
     <tbody>
@@ -83,43 +83,43 @@
     </tbody>
   </table>
 
-  <h5>Basic checkbox</h5>
+  <h5>Switch padrão</h5>
   <div class="example">
     <div>
-      <CheckBox />
+      <Switch />
     </div>
     <div>
-      <CheckBox label="Checkbox" checked />
+      <Switch on />
     </div>
   </div>
   <pre>
     <code>{codeDemoBasic}</code>
   </pre>
 
-  <h5>Checkbox colors</h5>
+  <h5>Switch colors</h5>
   <div class="example">
     <div>
-      <CheckBox label="Checkbox" color="red" />
+      <Switch color="grey" on />
     </div>
     <div>
-      <CheckBox label="Checkbox" checked color="red" />
+      <Switch buttonColor="grey" on />
     </div>
   </div>
-
   <pre>
     <code>{codeDemoColor}</code>
   </pre>
 
-  <h5>Disabled state</h5>
+  <h5>Switch desativado</h5>
   <div class="example">
     <div>
-      <CheckBox label="Disabled" checked disabled />
+      <Switch disabled />
     </div>
     <div>
-      <CheckBox label="Disabled" disabled />
+      <Switch disabled on />
     </div>
   </div>
   <pre>
     <code>{codeDemoDisabled}</code>
   </pre>
+
 </div>
