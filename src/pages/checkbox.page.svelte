@@ -114,5 +114,7 @@
   </div>
 
   <h5>Example</h5>
-  <textarea id="code" name="code">{codeDemo}</textarea>
+  <pre>
+    <code>{codeDemo}</code>
+  </pre>
 </div>

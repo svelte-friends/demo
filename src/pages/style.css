@@ -122,4 +122,12 @@
     background-color: #404040;
     color: white;
   }
+  pre {
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    box-shadow: 1px 1px 1px rgba(68, 68, 68, .12) inset;
+  }
+  pre > code {
+    color: #444;
+  }
   
