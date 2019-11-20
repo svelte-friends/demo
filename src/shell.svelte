@@ -19,6 +19,7 @@
   }
 
   @import './reset.css';
+  
 
   .shell {
     display: flex;
@@ -30,6 +31,8 @@
     width: 20%;
     background-color: #cecece;
   }
+  
+  @import './pages/style.css';
 </style>
 
 <div class="shell">
