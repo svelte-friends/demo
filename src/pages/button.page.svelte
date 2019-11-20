@@ -2,4 +2,6 @@
   import Button from '@packages/shared/button.svelte';
 </script>
 
-<Button />
+<div class="content">
+  <Button />
+</div>
