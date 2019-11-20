@@ -1,7 +1,7 @@
 <script>
   import CheckBox from '@packages/shared/checkbox.svelte';
 
-  let CheckBoxDemo = `
+  let codeDemo = `
   // Basic checkbox
    <CheckBox />
    <CheckBox label="Checkbox" checked />
@@ -15,44 +15,74 @@
    <CheckBox label="Disabled" disabled />
    
   `;
+
+  let attributes = [
+    {
+      parameter: 'label',
+      description: 'We use to define a text.',
+      type: 'String',
+      optionalValue: '---',
+      defaultValuie: '---',
+    },
+    {
+      parameter: 'checked',
+      description: 'We use to define if checked.',
+      type: 'Bolean',
+      optionalValue: '---',
+      defaultValuie: 'false',
+    },
+    {
+      parameter: 'color',
+      description: 'We use to define a color.',
+      type: 'String',
+      optionalValue: 'true',
+      defaultValuie: '#624695',
+    },
+    {
+      parameter: 'disabled',
+      description: 'We use to define if disabled.',
+      type: 'Bolean',
+      optionalValue: 'true',
+      defaultValuie: 'false',
+    },
+  ];
 </script>
 
 <div class="content">
   <h2>Checkbox</h2>
   <p>Provide multiple checkboxes for multiple selections.</p>
   <h4>Attributes</h4>
-  <!-- Maybe we can add in a table-->
-  <ul>
-    <li>
-      We use the
-      <code class="highlighter-rouge">label</code>
-      to define a text. Type:
-      <code class="highlighter-rouge">string</code>
-    </li>
-    <li>
-      We use the
-      <code class="highlighter-rouge">checked</code>
-      to define if checked. Type:
-      <code class="highlighter-rouge">bolean</code>
-    </li>
-    <li>
-      We use the
-      <code class="highlighter-rouge">color</code>
-      to define a color ex:
-      <code class="highlighter-rouge">#ff0000</code>
-      or
-      <code class="highlighter-rouge">red, blue ...</code>
-      . Type:
-      <code class="highlighter-rouge">string</code>
-    </li>
-    <li>
-      We use the
-      <code class="highlighter-rouge">disabled</code>
-      to define if disabled. Type:
-      <code class="highlighter-rouge">bolean</code>
-    </li>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Parameter</th>
+        <th>description</th>
+        <th>type</th>
+        <th>optional value</th>
+        <th>default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each attributes as item}
+        <tr>
+          <td>
+            <code class="highlighter-rouge">{item.parameter}</code>
+          </td>
+          <td>{item.description}</td>
+          <td>
+            <code class="highlighter-rouge">{item.type}</code>
+          </td>
+          <td>
+            <code class="highlighter-rouge">{item.optionalValue}</code>
+          </td>
+          <td>
+            <code class="highlighter-rouge">{item.defaultValuie}</code>
+          </td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
 
-  </ul>
   <h5>Basic checkbox</h5>
   <div class="example">
     <div>
@@ -84,5 +114,5 @@
   </div>
 
   <h5>Example</h5>
-  <textarea id="code" name="code">{CheckBoxDemo}</textarea>
+  <textarea id="code" name="code">{codeDemo}</textarea>
 </div>

@@ -1,5 +1,4 @@
 .content {
-    display: flex;
     flex-direction: column;
     padding: 20px;
     width: 100%;
@@ -91,13 +90,36 @@
   ul li {
     margin-bottom: 0.5rem;
   }
-  .teste {
-    padding: 50px;
-  }
   .example {
     display: flex;
     justify-content: space-around;
   }
   .example > div {
     margin-bottom: 24px;
+    width: 100%;
   }
+
+  .table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  
+  .table td, .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .table tr:hover {background-color: #ddd;}
+  
+  .table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #404040;
+    color: white;
+  }
+  
