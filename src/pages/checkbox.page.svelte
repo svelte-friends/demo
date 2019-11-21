@@ -39,31 +39,31 @@
 </script>
 
 <BasePage>
-  <div class="content">
-    <Title size="h2" text="Checkbox" />
-    <Text>Provide multiple checkboxes for multiple selections.</Text>
-    <Table {thead} {tbody} />
+  <Title size="h2" text="Checkbox" />
+  <Text>Provide multiple checkboxes for multiple selections.</Text>
+  <Title size="h3" text="Attributes" />
 
-    <Title size="h4" text="Basic" />
-    <Example>
-      <CheckBox />
-      <CheckBox label="Checkbox" checked />
-    </Example>
-    <Code code={codeDemoBasic} />
+  <Table {thead} {tbody} />
 
-    <Title size="h4" text="Colors" />
-    <Example>
-      <CheckBox label="Checkbox" color="red" />
-      <CheckBox label="Checkbox" checked color="red" />
-    </Example>
-    <Code code={codeDemoColor} />
+  <Title size="h4" text="Basic" />
+  <Example>
+    <CheckBox />
+    <CheckBox label="Checkbox" checked />
+  </Example>
+  <Code code={codeDemoBasic} />
 
-    <Title size="h4" text="Disabled" />
-    <Example>
-      <CheckBox label="Disabled" checked disabled />
-      <CheckBox label="Disabled" disabled />
-    </Example>
-    <Code code={codeDemoDisabled} />
+  <Title size="h4" text="Colors" />
+  <Example>
+    <CheckBox label="Checkbox" color="red" />
+    <CheckBox label="Checkbox" checked color="red" />
+  </Example>
+  <Code code={codeDemoColor} />
 
-  </div>
+  <Title size="h4" text="Disabled" />
+  <Example>
+    <CheckBox label="Disabled" checked disabled />
+    <CheckBox label="Disabled" disabled />
+  </Example>
+  <Code code={codeDemoDisabled} />
+
 </BasePage>
