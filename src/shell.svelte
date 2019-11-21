@@ -6,6 +6,7 @@
     '/components/button': page.Button,
     '/components/checkbox': page.Checkbox,
     '/components/switch': page.Switch,
+    '/components/progressRing': page.ProgressRing,
 
   };
 
