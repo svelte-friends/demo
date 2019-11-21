@@ -9,6 +9,7 @@
     '/components/progressRing': page.ProgressRing,
     '/components/radio': page.Radio,
 
+    '/components/progressBar': page.ProgressBar,
   };
 
   const urlList = Object.keys(routes).map(item => ({
