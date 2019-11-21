@@ -1,12 +1,33 @@
 <script>
   import CheckBox from '@packages/shared/checkbox.svelte';
+  import BasePage from './components/page.svelte';
+  import Code from './components/code.svelte';
+  import Title from './components/title.svelte';
+  import Example from './components/example.svelte';
+  import Table from './components/table.svelte';
+  import Text from './components/text.svelte';
+
+  let thead = [
+    'Parameter',
+    'Description',
+    'Type',
+    'Optional value',
+    'Default value',
+  ];
+
+  let tbody = [
+    ['label', 'We use to define a text.', 'String', 'true', '---'],
+    ['checked', 'We use to define if checked.', 'Boolean', 'true', 'false'],
+    ['color', 'We use to define a color.', 'String', 'true', '#624695'],
+    ['disabled', 'We use to define if disabled.', 'Boolean', 'true', 'false'],
+  ];
 
   let codeDemoBasic = `
    <CheckBox />
    <CheckBox label="Checkbox" checked />
   `;
 
-   let codeDemoColor = `
+  let codeDemoColor = `
    <CheckBox label="Checkbox" color="red" />
    <CheckBox label="Checkbox" checked color="red" />
   `;
@@ -15,111 +36,34 @@
    <CheckBox label="Disabled" checked disabled />
    <CheckBox label="Disabled" disabled />
   `;
-
-  let attributes = [
-    {
-      parameter: 'label',
-      description: 'We use to define a text.',
-      type: 'String',
-      optionalValue: '---',
-      defaultValuie: '---',
-    },
-    {
-      parameter: 'checked',
-      description: 'We use to define if checked.',
-      type: 'Bolean',
-      optionalValue: '---',
-      defaultValuie: 'false',
-    },
-    {
-      parameter: 'color',
-      description: 'We use to define a color.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValuie: '#624695',
-    },
-    {
-      parameter: 'disabled',
-      description: 'We use to define if disabled.',
-      type: 'Bolean',
-      optionalValue: 'true',
-      defaultValuie: 'false',
-    },
-  ];
 </script>
 
-<div class="content">
-  <h2>Checkbox</h2>
-  <p>Provide multiple checkboxes for multiple selections.</p>
-  <h4>Attributes</h4>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Parameter</th>
-        <th>description</th>
-        <th>type</th>
-        <th>optional value</th>
-        <th>default value</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each attributes as item}
-        <tr>
-          <td>
-            <code class="highlighter-rouge">{item.parameter}</code>
-          </td>
-          <td>{item.description}</td>
-          <td>
-            <code class="highlighter-rouge">{item.type}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.optionalValue}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.defaultValuie}</code>
-          </td>
-        </tr>
-      {/each}
-    </tbody>
-  </table>
+<BasePage>
+  <div class="content">
+    <Title size="h2" text="Checkbox" />
+    <Text>Provide multiple checkboxes for multiple selections.</Text>
+    <Table {thead} {tbody} />
 
-  <h5>Basic checkbox</h5>
-  <div class="example">
-    <div>
+    <Title size="h4" text="Basic" />
+    <Example>
       <CheckBox />
-    </div>
-    <div>
       <CheckBox label="Checkbox" checked />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoBasic}</code>
-  </pre>
+    </Example>
+    <Code code={codeDemoBasic} />
 
-  <h5>Checkbox colors</h5>
-  <div class="example">
-    <div>
+    <Title size="h4" text="Colors" />
+    <Example>
       <CheckBox label="Checkbox" color="red" />
-    </div>
-    <div>
       <CheckBox label="Checkbox" checked color="red" />
-    </div>
-  </div>
+    </Example>
+    <Code code={codeDemoColor} />
 
-  <pre>
-    <code>{codeDemoColor}</code>
-  </pre>
-
-  <h5>Disabled state</h5>
-  <div class="example">
-    <div>
+    <Title size="h4" text="Disabled" />
+    <Example>
       <CheckBox label="Disabled" checked disabled />
-    </div>
-    <div>
       <CheckBox label="Disabled" disabled />
-    </div>
+    </Example>
+    <Code code={codeDemoDisabled} />
+
   </div>
-  <pre>
-    <code>{codeDemoDisabled}</code>
-  </pre>
-</div>
+</BasePage>
