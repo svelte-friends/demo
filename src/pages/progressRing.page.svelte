@@ -7,20 +7,38 @@
   import Table from './components/table.svelte';
   import Text from './components/text.svelte';
 
-  let codeDemoBasic = `
-  <ProgressRing />
-  <ProgressRing text="Loading file..." />
-
+  let determinateBasic = `
+    <ProgressRing type="determinate" percent={10} />
+    <ProgressRing type="determinate" percent={45} />
+    <ProgressRing type="determinate" percent={75} />
+    <ProgressRing type="determinate" percent={100} />
   `;
 
-  let codeDemoSize = `
-   <ProgressRing small/>
-   <ProgressRing big/>
+  let determinateColor = `
+   <ProgressRing type="determinate" percent={10} color="red" colorText="red" />
+    <ProgressRing type="determinate" percent={45} color="green" colorText="green" text="Loaging 1" />
+    <ProgressRing type="determinate" percent={75} color="blue" colorText="blue" text="Loaging 2" />
+    <ProgressRing type="determinate" percent={100} color="grey" colorText="grey" text="Loaging 3" />
   `;
 
-  let codeDemoDeterminate = `
-  <ProgressRing type="determinate" percent={100} color="red" colorText="red" small />
-  <ProgressRing type="determinate" percent={60} color="green" colorText="green" big />
+  let determinatesize = `
+   <ProgressRing type="determinate" percent={10} color="red" colorText="red" small />
+    <ProgressRing type="determinate" percent={45} color="green" colorText="green" big />
+    <ProgressRing type="determinate" percent={75} color="blue" colorText="blue" small />
+    <ProgressRing type="determinate" percent={100} color="grey" colorText="grey" big />
+  `;
+
+  let indeterminateBasic = `
+    <ProgressRing />
+    <ProgressRing colorText="#675c5ccc" text="Loaging 1" />
+    <ProgressRing colorText="#624695" text="Loaging 2" />
+    <ProgressRing colorText="grey" text="Loaging 3" />
+  `;
+  let indeterminateSize = `
+    <ProgressRing small />
+    <ProgressRing big colorText="#675c5ccc" text="Loaging 1" />
+    <ProgressRing big colorText="#624695" text="Loaging 2" />
+    <ProgressRing big colorText="grey" text="Loaging 3" />
   `;
 
   let thead = [
@@ -74,33 +92,82 @@
 
   <Title size="h5" text="Determinate" />
   <Example>
+    <ProgressRing type="determinate" percent={10} />
+    <ProgressRing type="determinate" percent={45} />
+    <ProgressRing type="determinate" percent={75} />
+    <ProgressRing type="determinate" percent={100} />
+  </Example>
+  <Code code={determinateBasic} />
+
+  <Title size="h5" text="Determinate Color" />
+  <Example>
+    <ProgressRing type="determinate" percent={10} color="red" colorText="red" />
+    <ProgressRing
+      type="determinate"
+      percent={45}
+      color="green"
+      colorText="green"
+      text="Loaging 1" />
+    <ProgressRing
+      type="determinate"
+      percent={75}
+      color="blue"
+      colorText="blue"
+      text="Loaging 2" />
     <ProgressRing
       type="determinate"
       percent={100}
+      color="grey"
+      colorText="grey"
+      text="Loaging 3" />
+  </Example>
+  <Code code={determinateColor} />
+
+  <Title size="h5" text="Determinate size" />
+  <Example>
+    <ProgressRing
+      type="determinate"
+      percent={10}
       color="red"
       colorText="red"
       small />
     <ProgressRing
       type="determinate"
-      percent={60}
+      percent={45}
       color="green"
       colorText="green"
       big />
+    <ProgressRing
+      type="determinate"
+      percent={75}
+      color="blue"
+      colorText="blue"
+      small />
+    <ProgressRing
+      type="determinate"
+      percent={100}
+      color="grey"
+      colorText="grey"
+      big />
   </Example>
-  <Code code={codeDemoDeterminate} />
+  <Code code={determinatesize} />
 
   <Title size="h5" text="Indeterminate" />
   <Example>
     <ProgressRing />
-    <ProgressRing text="Loading file..." />
+    <ProgressRing colorText="#675c5ccc" text="Loaging 1" />
+    <ProgressRing colorText="#624695" text="Loaging 2" />
+    <ProgressRing colorText="grey" text="Loaging 3" />
   </Example>
-  <Code code={codeDemoBasic} />
+  <Code code={indeterminateBasic} />
 
   <Title size="h5" text="Size" />
   <Example>
     <ProgressRing small />
-    <ProgressRing big colorText="#675c5ccc" text="Loaging..." />
+    <ProgressRing big colorText="#675c5ccc" text="Loaging 1" />
+    <ProgressRing big colorText="#624695" text="Loaging 2" />
+    <ProgressRing big colorText="grey" text="Loaging 3" />
   </Example>
-  <Code code={codeDemoSize} />
+  <Code code={indeterminateSize} />
 
 </BasePage>
