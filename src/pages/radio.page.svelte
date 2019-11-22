@@ -8,18 +8,24 @@
   import Text from './components/text.svelte';
 
   let codeDemoBasic = `
-   <RadioButton />
-   <RadioButton label="Radio checked" checked />
+    <RadioButton />
+    <RadioButton checked />
+    <RadioButton label="RadioButton" />
+    <RadioButton label="RadioButton" checked />
   `;
 
   let codeDemoColor = `
-   <RadioButton label="Radio red" color="red" />
-   <RadioButton label="Radio red" color="red" checked />
+    <RadioButton color="red" />
+    <RadioButton color="green" checked />
+    <RadioButton label="RadioButton" color="grey" checked />
+    <RadioButton label="RadioButton" color="red" checked />
   `;
 
   let codeDemoDisabled = `
-   <RadioButton label="Disabled" color="red" disabled />
-  <RadioButton label="Disabled" disabled checked />
+    <RadioButton color="red" disabled />
+    <RadioButton color="green" checked disabled />
+    <RadioButton label="RadioButton" color="grey" checked disabled />
+    <RadioButton label="RadioButton" color="red" checked disabled />
   `;
 
   let thead = [
@@ -55,21 +61,27 @@
   <Title size="h5" text="Basic" />
   <Example>
     <RadioButton />
-    <RadioButton label="Radio checked" checked />
+    <RadioButton checked />
+    <RadioButton label="RadioButton" />
+    <RadioButton label="RadioButton" checked />
   </Example>
   <Code code={codeDemoBasic} />
 
   <Title size="h5" text="Colors" />
   <Example>
-    <RadioButton label="Radio red" color="red" />
-    <RadioButton label="Radio red" color="red" checked />
+    <RadioButton color="red" />
+    <RadioButton color="green" checked />
+    <RadioButton label="RadioButton" color="grey" checked />
+    <RadioButton label="RadioButton" color="red" checked />
   </Example>
   <Code code={codeDemoColor} />
 
   <Title size="h5" text="Disabled" />
   <Example>
-    <RadioButton label="Disabled" color="red" disabled />
-    <RadioButton label="Disabled" disabled checked />
+    <RadioButton color="red" disabled />
+    <RadioButton color="green" checked disabled />
+    <RadioButton label="RadioButton" color="grey" checked disabled />
+    <RadioButton label="RadioButton" color="red" checked disabled />
   </Example>
   <Code code={codeDemoDisabled} />
 
