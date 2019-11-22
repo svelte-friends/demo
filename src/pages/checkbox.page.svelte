@@ -23,18 +23,24 @@
   ];
 
   let codeDemoBasic = `
-   <CheckBox />
-   <CheckBox label="Checkbox" checked />
+    <CheckBox />
+    <CheckBox checked />
+    <CheckBox label="Checkbox" />
+    <CheckBox label="Checkbox" checked />
   `;
 
   let codeDemoColor = `
-   <CheckBox label="Checkbox" color="red" />
-   <CheckBox label="Checkbox" checked color="red" />
+    <CheckBox label="Checkbox" color="red" />
+    <CheckBox label="Checkbox" checked color="red" />
+    <CheckBox label="Checkbox" checked color="green" />
+    <CheckBox label="Checkbox" checked color="grey" />
   `;
 
   let codeDemoDisabled = `
-   <CheckBox label="Disabled" checked disabled />
-   <CheckBox label="Disabled" disabled />
+    <CheckBox disabled />
+    <CheckBox checked disabled />
+    <CheckBox label="Checkbox" checked disabled />
+    <CheckBox label="Checkbox" disabled />
   `;
 </script>
 
@@ -48,6 +54,8 @@
   <Title size="h4" text="Basic" />
   <Example>
     <CheckBox />
+    <CheckBox checked />
+    <CheckBox label="Checkbox" />
     <CheckBox label="Checkbox" checked />
   </Example>
   <Code code={codeDemoBasic} />
@@ -56,13 +64,17 @@
   <Example>
     <CheckBox label="Checkbox" color="red" />
     <CheckBox label="Checkbox" checked color="red" />
+    <CheckBox label="Checkbox" checked color="green" />
+    <CheckBox label="Checkbox" checked color="grey" />
   </Example>
   <Code code={codeDemoColor} />
 
   <Title size="h4" text="Disabled" />
   <Example>
-    <CheckBox label="Disabled" checked disabled />
-    <CheckBox label="Disabled" disabled />
+    <CheckBox disabled />
+    <CheckBox checked disabled />
+    <CheckBox label="Checkbox" checked disabled />
+    <CheckBox label="Checkbox" disabled />
   </Example>
   <Code code={codeDemoDisabled} />
 
