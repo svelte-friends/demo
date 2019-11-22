@@ -17,11 +17,35 @@
 
   let tbody = [
     ['text', 'We use to define a text.', 'String', 'false', 'Sample'],
-    ['number', 'We use to define a number if number > 99 show 99+.', 'Integer', 'false', 'Min: 0 and Max: 99'],
+    [
+      'number',
+      'We use to define a number if number > 99 show 99+.',
+      'Integer',
+      'false',
+      'Min: 0 and Max: 99',
+    ],
     ['small', 'We use to define a size.', 'String', 'true', 'false'],
-    ['colorText', 'We use to define a color for text.', 'String', 'true', '#000'],
-    ['colorBadge', 'We use to define a color for badge.', 'String', 'true', '#624695'],
-    ['textBadgeColor', 'We use to define a color for text in badge.', 'String', 'true', 'white'],
+    [
+      'colorText',
+      'We use to define a color for text.',
+      'String',
+      'true',
+      '#000',
+    ],
+    [
+      'colorBadge',
+      'We use to define a color for badge.',
+      'String',
+      'true',
+      '#624695',
+    ],
+    [
+      'textBadgeColor',
+      'We use to define a color for text in badge.',
+      'String',
+      'true',
+      'white',
+    ],
   ];
 
   let codeDemoBasic = `

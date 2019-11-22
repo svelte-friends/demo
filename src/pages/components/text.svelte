@@ -4,6 +4,7 @@
     margin-bottom: 1rem;
   }
 </style>
+
 <p>
   <slot />
 </p>

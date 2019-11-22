@@ -14,7 +14,6 @@
     '/components/list': page.List,
     '/components/input': page.Input,
     '/components/label': page.Label,
-
   };
 
   const urlList = Object.keys(routes).map(item => ({

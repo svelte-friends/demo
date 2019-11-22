@@ -106,14 +106,19 @@ ul li {
   margin-bottom: 25px;
 }
 
-.table td, .table th {
+.table td,
+.table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-.table tr:nth-child(even){background-color: #f2f2f2;}
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-.table tr:hover {background-color: #ddd;}
+.table tr:hover {
+  background-color: #ddd;
+}
 
 .table th {
   padding-top: 12px;
@@ -125,10 +130,9 @@ ul li {
 pre {
   background-color: #f2f2f2;
   border-radius: 12px;
-  box-shadow: 1px 1px 1px rgba(68, 68, 68, .12) inset;
+  box-shadow: 1px 1px 1px rgba(68, 68, 68, 0.12) inset;
   margin-bottom: 20px;
 }
 pre > code {
   color: #444;
 }
-  
