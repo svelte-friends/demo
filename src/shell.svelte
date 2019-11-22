@@ -11,6 +11,7 @@
     '/components/progressBar': page.ProgressBar,
     '/components/dotLabel': page.DotLabel,
     '/components/pagination': page.Pagination,
+    '/components/input': page.Input,
   };
 
   const urlList = Object.keys(routes).map(item => ({
