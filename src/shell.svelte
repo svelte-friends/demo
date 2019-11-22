@@ -10,6 +10,7 @@
     '/components/radio': page.Radio,
     '/components/progressBar': page.ProgressBar,
     '/components/dotLabel': page.DotLabel,
+    '/components/pagination': page.Pagination,
   };
 
   const urlList = Object.keys(routes).map(item => ({
