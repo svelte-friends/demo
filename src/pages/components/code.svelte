@@ -5,9 +5,11 @@
 <style>
   pre {
     background-color: #f2f2f2;
-    border-radius: 12px;
-    box-shadow: 1px 1px 1px rgba(68, 68, 68, 0.12) inset;
     margin-bottom: 20px;
+    border: 1px solid #aaa;
+    border-radius: 11px;
+    box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+    line-height: 22px;
   }
   pre > code {
     color: #444;
