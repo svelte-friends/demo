@@ -11,6 +11,7 @@
     '/components/progressBar': page.ProgressBar,
     '/components/dotLabel': page.DotLabel,
     '/components/pagination': page.Pagination,
+    '/components/list': page.List,
     '/components/input': page.Input,
     '/components/label': page.Label,
 

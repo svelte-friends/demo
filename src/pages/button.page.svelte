@@ -36,7 +36,7 @@
     <Button />
     <Button text="click here" />
   `;
-  const colored = `
+  const colors = `
     <Button color="blue" />
     <Button hover="yellow" />
     <Button active="red" />
@@ -70,14 +70,14 @@
   </Example>
   <Code code={basic} />
 
-  <Title size="h4" text="Colored" />
+  <Title size="h4" text="Colors" />
   <Example>
     <Button color="blue" />
     <Button hover="yellow" />
     <Button active="red" />
     <Button color="blue" hover="yellow" active="red" />
   </Example>
-  <Code code={colored} />
+  <Code code={colors} />
 
   <Title size="h4" text="Sizes" />
   <Example>
