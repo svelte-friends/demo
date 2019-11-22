@@ -8,8 +8,9 @@
     '/components/switch': page.Switch,
     '/components/progressRing': page.ProgressRing,
     '/components/radio': page.Radio,
-
     '/components/progressBar': page.ProgressBar,
+    '/components/dotLabel': page.DotLabel,
+    '/components/pagination': page.Pagination,
   };
 
   const urlList = Object.keys(routes).map(item => ({
@@ -58,7 +59,6 @@
   }
 
   @import './reset.css';
-  @import './pages/style.css';
 </style>
 
 <div class="shell">

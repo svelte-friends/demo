@@ -1,5 +1,11 @@
 <script>
   import Switch from '@packages/shared/switch.svelte';
+  import BasePage from './components/page.svelte';
+  import Code from './components/code.svelte';
+  import Title from './components/title.svelte';
+  import Example from './components/example.svelte';
+  import Table from './components/table.svelte';
+  import Text from './components/text.svelte';
 
   let codeDemoBasic = `
     <Switch />
@@ -15,111 +21,65 @@
      <Switch disabled />
      <Switch disabled on />
   `;
-  
-  let attributes = [
-    {
-      parameter: 'on',
-      description: 'Usamos para definir o botão a direita.',
-      type: 'Bolean',
-      optionalValue: '---',
-      defaultValuie: 'false',
-    },
-    {
-      parameter: 'color',
-      description: 'Usamos para definir uma cor para o switch.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValuie: '#b1d660',
-    },
-    {
-      parameter: 'buttonColor',
-      description: 'Usamos para definir uma cor para o botão.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValuie: '#e0fe9f',
-    },
-    {
-      parameter: 'disabled',
-      description: 'Usamos para definir se desativado.',
-      type: 'Bolean',
-      optionalValue: 'true',
-      defaultValuie: 'false',
-    },
+
+  let thead = [
+    'Parameter',
+    'Description',
+    'Type',
+    'Optional value',
+    'Default value',
+  ];
+
+  let tbody = [
+    [
+      'on',
+      'We use to define enabled or not enabled',
+      'Boolean',
+      'true',
+      'false',
+    ],
+    [
+      'color',
+      'We use to define a color for text.',
+      'String',
+      'true',
+      '#b1d660',
+    ],
+    [
+      'buttonColor',
+      'We use to define a color in button.',
+      'String',
+      'true',
+      '#e0fe9f',
+    ],
+    ['disabled', 'We use to define if desabled.', 'Boolean', 'true', 'false'],
   ];
 </script>
 
-<div class="content">
-  <h2>Switch</h2>
-  <p>Alterna para ativar ou desativar o estado de uma única configuração.</p>
-  <h4>Atributos</h4>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Parâmetro</th>
-        <th>descrição</th>
-        <th>tipo</th>
-        <th>valor opcional</th>
-        <th>valor padrão</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each attributes as item}
-        <tr>
-          <td>
-            <code class="highlighter-rouge">{item.parameter}</code>
-          </td>
-          <td>{item.description}</td>
-          <td>
-            <code class="highlighter-rouge">{item.type}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.optionalValue}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.defaultValuie}</code>
-          </td>
-        </tr>
-      {/each}
-    </tbody>
-  </table>
+<BasePage>
+  <Title size="h2" text="Switch" />
+  <Title size="h3" text="Attributes" />
+  <Table {thead} {tbody} />
 
-  <h5>Switch padrão</h5>
-  <div class="example">
-    <div>
-      <Switch />
-    </div>
-    <div>
-      <Switch on />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoBasic}</code>
-  </pre>
+  <Title size="h5" text="Basic" />
+  <Example>
+    <Switch />
+    <Switch on />
+  </Example>
+  <Code code={codeDemoBasic} />
 
-  <h5>Switch colors</h5>
-  <div class="example">
-    <div>
-      <Switch color="grey" on />
-    </div>
-    <div>
-      <Switch buttonColor="grey" on />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoColor}</code>
-  </pre>
+  <Title size="h5" text="Colors" />
+  <Example>
+    <Switch color="grey" on />
+    <Switch buttonColor="grey" on />
+  </Example>
+  <Code code={codeDemoColor} />
 
-  <h5>Switch desativado</h5>
-  <div class="example">
-    <div>
-      <Switch disabled />
-    </div>
-    <div>
-      <Switch disabled on />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoDisabled}</code>
-  </pre>
+  <Title size="h5" text="Disabled" />
+  <Example>
+    <Switch disabled />
+    <Switch disabled on />
+  </Example>
+  <Code code={codeDemoDisabled} />
 
-</div>
+</BasePage>

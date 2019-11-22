@@ -1,5 +1,11 @@
 <script>
   import ProgressRing from '@packages/shared/progressRing.svelte';
+  import BasePage from './components/page.svelte';
+  import Code from './components/code.svelte';
+  import Title from './components/title.svelte';
+  import Example from './components/example.svelte';
+  import Table from './components/table.svelte';
+  import Text from './components/text.svelte';
 
   let codeDemoBasic = `
   <ProgressRing />
@@ -17,142 +23,84 @@
   <ProgressRing type="determinate" percent={60} color="green" colorText="green" big />
   `;
 
-  let attributes = [
-    {
-      parameter: 'small',
-      description: 'We use to define a size.',
-      type: 'Bolean',
-      optionalValue: 'true',
-      defaultValue: 'false',
-    },
-    {
-      parameter: 'big',
-      description: 'We use to define a size.',
-      type: 'Bolean',
-      optionalValue: 'true',
-      defaultValue: 'false',
-    },
-    {
-      parameter: 'text',
-      description: 'We use to define a text.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValue: 'Loading',
-    },
-    {
-      parameter: 'colorText',
-      description: 'We use to define a color.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValue: '#0b0e1e',
-    },
-    {
-      parameter: 'color',
-      description: 'We use to define a color for progress.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValue: '#624695',
-    },
-    {
-      parameter: 'type',
-      description: 'We use to define a type. indeterminate or determinate.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValue: 'indeterminate',
-    },
-    {
-      parameter: 'percent',
-      description:
-        'We use to define the percent for progress, only applicable for determinate type.',
-      type: 'Integer',
-      optionalValue: 'false',
-      defaultValue: 'Min: 0 and Max: 100',
-    },
+  let thead = [
+    'Parameter',
+    'Description',
+    'Type',
+    'Optional value',
+    'Default value',
+  ];
+
+  let tbody = [
+    ['small', 'We use to define a size.', 'Boolean', 'true', 'false'],
+    ['big', 'We use to define a size.', 'Boolean', 'true', 'false'],
+    ['text', 'We use to define a text.', 'String', 'true', 'Loading'],
+    [
+      'colorText',
+      'We use to define a color for text.',
+      'String',
+      'true',
+      '#0b0e1e',
+    ],
+    [
+      'color',
+      'We use to define a color for progress.',
+      'String',
+      'true',
+      '#624695',
+    ],
+    [
+      'type',
+      'We use to define a type. indeterminate or determinate.',
+      'String',
+      'true',
+      'indeterminate',
+    ],
+    [
+      'percent',
+      'We use to define the percent for progress, only applicable for determinate type.',
+      'Integer',
+      'false',
+      'Min: 0 and Max: 100',
+    ],
   ];
 </script>
 
-<div class="content">
-  <h2>Progress Ring</h2>
-  <p>Progress component use to load in your pages.</p>
-  <h4>Attributes</h4>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Parameter</th>
-        <th>description</th>
-        <th>type</th>
-        <th>optional value</th>
-        <th>default value</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each attributes as item}
-        <tr>
-          <td>
-            <code class="highlighter-rouge">{item.parameter}</code>
-          </td>
-          <td>{item.description}</td>
-          <td>
-            <code class="highlighter-rouge">{item.type}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.optionalValue}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.defaultValue}</code>
-          </td>
-        </tr>
-      {/each}
-    </tbody>
-  </table>
+<BasePage>
+  <Title size="h2" text="Progress Ring" />
+  <Text>Progress component use to load in your pages.</Text>
+  <Title size="h3" text="Attributes" />
+  <Table {thead} {tbody} />
 
-  <h5>Progress indeterminate</h5>
-  <div class="example">
-    <div>
-      <ProgressRing />
-    </div>
-    <div>
-      <ProgressRing text="Loading file..." />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoBasic}</code>
-  </pre>
+  <Title size="h5" text="Determinate" />
+  <Example>
+    <ProgressRing
+      type="determinate"
+      percent={100}
+      color="red"
+      colorText="red"
+      small />
+    <ProgressRing
+      type="determinate"
+      percent={60}
+      color="green"
+      colorText="green"
+      big />
+  </Example>
+  <Code code={codeDemoDeterminate} />
 
-  <h5>Progress indeterminate size</h5>
-  <div class="example">
-    <div>
-      <ProgressRing small />
-    </div>
-    <div>
-      <ProgressRing big colorText="#675c5ccc" text="Loaging..." />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoSize}</code>
-  </pre>
+  <Title size="h5" text="Indeterminate" />
+  <Example>
+    <ProgressRing />
+    <ProgressRing text="Loading file..." />
+  </Example>
+  <Code code={codeDemoBasic} />
 
-  <h5>Progress determinate</h5>
-  <div class="example">
-    <div>
-      <ProgressRing
-        type="determinate"
-        percent={100}
-        color="red"
-        colorText="red"
-        small />
-    </div>
-    <div>
-      <ProgressRing
-        type="determinate"
-        percent={60}
-        color="green"
-        colorText="green"
-        big />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoDeterminate}</code>
-  </pre>
+  <Title size="h5" text="Size" />
+  <Example>
+    <ProgressRing small />
+    <ProgressRing big colorText="#675c5ccc" text="Loaging..." />
+  </Example>
+  <Code code={codeDemoSize} />
 
-</div>
+</BasePage>

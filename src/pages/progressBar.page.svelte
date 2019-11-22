@@ -1,20 +1,60 @@
 <script>
   import ProgressBar from '@packages/shared/progressBar.svelte';
+  import BasePage from './components/page.svelte';
+  import Code from './components/code.svelte';
+  import Title from './components/title.svelte';
+  import Example from './components/example.svelte';
+  import Table from './components/table.svelte';
+  import Text from './components/text.svelte';
+
+  let thead = [
+    'Parameter',
+    'Description',
+    'Type',
+    'Optional value',
+    'Default value',
+  ];
+
+  let tbody = [
+    [
+      'value',
+      'We use to define the percentage of progress, applicable only for the given type.',
+      'Integer',
+      'false',
+      'Min: 0 e Max:100',
+    ],
+    [
+      'backgroundColor',
+      'We use to define a color.',
+      'String',
+      'true',
+      'linear-gradient(268deg, #624695, #e1364a)',
+    ],
+    ['medium', 'We use to set a size.', 'Boolean', 'true', 'false'],
+    ['big', 'We use to set a size.', 'Boolean', 'true', 'false'],
+    [
+      'indeterminate',
+      'We use to define the undetermined type.',
+      'Boolean',
+      'true',
+      'false',
+    ],
+  ];
 
   let codeDemoBasic = `
-      <ProgressBar value="80" /><br />
+      <ProgressBar value="80" />
       <ProgressBar value="50" />
   `;
 
   let codeDemoColor = `
-      <ProgressBar backgroundColor="red" value="25" /><br />
-      <ProgressBar backgroundColor="blue" value="50" /><br />
+      <ProgressBar backgroundColor="red" value="25" />
+      <ProgressBar backgroundColor="blue" value="50" />
       <ProgressBar backgroundColor="linear-gradient(268deg, yellow, blue)" value="75" />
   `;
 
   let codeDemoSize = `
-      <ProgressBar value=75/><br />
-      <ProgressBar medium value=50/><br />
+      <ProgressBar value=75/>
+      <ProgressBar medium value=50/>
       <ProgressBar big value=25/>
   `;
 
@@ -23,152 +63,72 @@
   `;
 
   let codeDemoIndeterminateSize = ` 
-      <ProgressBar indeterminate/><br />
-      <ProgressBar indeterminate medium backgroundColor='blue'/><br />
+      <ProgressBar indeterminate/>
+      <ProgressBar indeterminate medium backgroundColor='blue'/>
       <ProgressBar indeterminate big backgroundColor='red'/>
   `;
-
-  let attributes = [
-    {
-      parameter: 'value',
-      description:
-        'We use to define the percentage of progress, applicable only for the given type.',
-      type: 'Integer',
-      optionalValue: 'false',
-      defaultValue: 'Min: 0 e Max:100',
-    },
-    {
-      parameter: 'backgroundColor',
-      description: 'We use to define a color.',
-      type: 'String',
-      optionalValue: 'true',
-      defaultValue: 'linear-gradient(268deg, #624695, #e1364a)',
-    },
-    {
-      parameter: 'medium',
-      description: 'We use to set a size.',
-      type: 'Bolean',
-      optionalValue: 'true',
-      defaultValue: 'false',
-    },
-    {
-      parameter: 'big',
-      description: 'We use to set a size.',
-      type: 'Bolean',
-      optionalValue: 'true',
-      defaultValue: 'false',
-    },
-    {
-      parameter: 'indeterminate',
-      description: 'We use to define the undetermined type.',
-      type: 'Bolean',
-      optionalValue: 'true',
-      defaultValue: 'false',
-    },
-  ];
 </script>
 
-<div class="content">
-  <h2>ProgressBar</h2>
-  <p>
-    A progress bar can be used to show the user how long he / she is in a process.
-  </p>
-  <h4>Attributes</h4>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th>Parameter</th>
-        <th>Description</th>
-        <th>Type</th>
-        <th>Optional value</th>
-        <th>Standard value</th>
-      </tr>
-    </thead>
-    <tbody>
-      {#each attributes as item}
-        <tr>
-          <td>
-            <code class="highlighter-rouge">{item.parameter}</code>
-          </td>
-          <td>{item.description}</td>
-          <td>
-            <code class="highlighter-rouge">{item.type}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.optionalValue}</code>
-          </td>
-          <td>
-            <code class="highlighter-rouge">{item.defaultValue}</code>
-          </td>
-        </tr>
-      {/each}
-    </tbody>
-  </table>
+<BasePage>
+  <Title size="h2" text="Progress Bar" />
+  <Text>
+    A progress bar can be used to show the user how long he / she is in a
+    process.
+  </Text>
+  <Title size="h3" text="Attributes" />
+  <Table {thead} {tbody} />
 
-  <h5>Default ProgressBar with Value</h5>
-  <div class="example">
-    <div>
-      <ProgressBar value="80" />
-      <br />
-      <ProgressBar value="50" />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoBasic}</code>
-  </pre>
+  <Title size="h5" text="Basic" />
+  <Example>
+    <ProgressBar value="80" />
+  </Example>
+  <Example>
+    <ProgressBar value="50" />
+  </Example>
+  <Code code={codeDemoBasic} />
 
-  <h5>ProgressBar colors</h5>
-  <div class="example">
-    <div>
-      <ProgressBar backgroundColor="red" value="25" />
-      <br />
-      <ProgressBar backgroundColor="blue" value="50" />
-      <br />
-      <ProgressBar
-        backgroundColor="linear-gradient(268deg, yellow, blue)"
-        value="75" />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoColor}</code>
-  </pre>
+  <Title size="h4" text="Colors" />
+  <Example>
+    <ProgressBar backgroundColor="red" value="25" />
+  </Example>
+  <Example>
+    <ProgressBar backgroundColor="blue" value="50" />
+  </Example>
+  <Example>
+    <ProgressBar
+      backgroundColor="linear-gradient(268deg, yellow, blue)"
+      value="75" />
+  </Example>
+  <Code code={codeDemoColor} />
 
-  <h5>ProgressBar size</h5>
-  <div class="example">
-    <div>
-      <ProgressBar value="75" />
-      <br />
-      <ProgressBar medium value="50" />
-      <br />
-      <ProgressBar big value="25" />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoSize}</code>
-  </pre>
+  <Title size="h4" text="Size" />
+  <Example>
+    <ProgressBar value="75" />
+  </Example>
+  <Example>
+    <ProgressBar medium value="50" />
+  </Example>
+  <Example>
+    <ProgressBar big value="25" />
+  </Example>
+  <Code code={codeDemoSize} />
 
-  <h5>ProgressBar indeterminate Default</h5>
-  <div class="example">
-    <div>
-      <ProgressBar indeterminate />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoIndeterminate}</code>
-  </pre>
+  <Title size="h4" text="Indeterminate" />
+  <Example>
+    <ProgressBar indeterminate />
+  </Example>
+  <Code code={codeDemoIndeterminate} />
 
-  <h5>ProgressBar indeterminate size</h5>
-  <div class="example">
-    <div>
-      <ProgressBar indeterminate />
-      <br />
-      <ProgressBar indeterminate medium backgroundColor="blue" />
-      <br />
-      <ProgressBar indeterminate big backgroundColor="red" />
-    </div>
-  </div>
-  <pre>
-    <code>{codeDemoIndeterminateSize}</code>
-  </pre>
+  <Title size="h4" text="Indeterminate size" />
+  <Example>
+    <ProgressBar indeterminate />
+  </Example>
+  <Example>
+    <ProgressBar indeterminate medium backgroundColor="blue" />
+  </Example>
+  <Example>
+    <ProgressBar indeterminate big backgroundColor="red" />
+  </Example>
+  <Code code={codeDemoIndeterminateSize} />
 
-</div>
+</BasePage>
