@@ -7,3 +7,5 @@ export { default as ProgressBar } from './progressBar.page.svelte';
 export { default as DotLabel } from './dotLabel.page.svelte';
 export { default as Pagination } from './pagination.page.svelte';
 export { default as Input } from './input.page.svelte';
+export { default as Label } from './label.page.svelte';
+

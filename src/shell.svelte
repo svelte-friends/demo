@@ -12,6 +12,8 @@
     '/components/dotLabel': page.DotLabel,
     '/components/pagination': page.Pagination,
     '/components/input': page.Input,
+    '/components/label': page.Label,
+
   };
 
   const urlList = Object.keys(routes).map(item => ({
