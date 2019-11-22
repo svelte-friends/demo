@@ -1,34 +1,76 @@
 <script>
-  /** Imports */
-  import Router from "svelte-spa-router";
-  import { Home } from "./views";
+  import Router from 'svelte-spa-router';
+  import * as page from './pages';
 
   const routes = {
-    "/": Home
+    '/components/button': page.Button,
+    '/components/checkbox': page.Checkbox,
+    '/components/switch': page.Switch,
+    '/components/progressRing': page.ProgressRing,
+    '/components/radio': page.Radio,
+    '/components/progressBar': page.ProgressBar,
+    '/components/dotLabel': page.DotLabel,
+    '/components/pagination': page.Pagination,
+    '/components/list': page.List,
+    '/components/input': page.Input,
+    '/components/label': page.Label,
   };
+
+  const urlList = Object.keys(routes).map(item => ({
+    name: item.replace(/\/components\//, ''),
+    path: item,
+  }));
 </script>
 
 <style>
   :root {
-    --var-color-primary: orange;
-    --var-color-red: #fb4949;
-    --var-color-yellow: #ffeb00;
-    --var-color-green: #00e358;
-    --var-color-purple: #624695;
-    --text-color-white: #ffffff;
-    --text-font-family: "Poppins", sans-serif;
+    --text-font-family: 'Poppins', sans-serif;
   }
 
-  :global(html, body, .shell) {
-    height: 100%;
+  :global(html, body) {
     width: 100%;
-    font-family: "Open Sans", Tahoma, Geneva, Verdana, sans-serif;
-    font-family: var(--text-font-family);
+    height: 100%;
+    overflow: hidden;
   }
-  @import "./reset.css";
+
+  .shell {
+    display: flex;
+    height: 100%;
+  }
+
+  .list {
+    height: 100%;
+    width: 20%;
+    background-color: #cecece;
+    overflow-y: auto;
+  }
+
+  .list li {
+    margin: 0;
+    padding: 5px;
+  }
+
+  .list a {
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    color: rgba(0, 0, 0, 0.65);
+  }
+
+  .list a:hover {
+    font-weight: 800;
+  }
+
+  @import './reset.css';
 </style>
 
-<!-- Simulate a Shell Architecture -->
 <div class="shell">
+  <ul class="list">
+    {#each urlList as url}
+      <li>
+        <a href="#{url.path}">{url.name}</a>
+      </li>
+    {/each}
+  </ul>
   <Router {routes} />
 </div>
