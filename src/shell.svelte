@@ -14,6 +14,7 @@
     '/components/list': page.List,
     '/components/input': page.Input,
     '/components/label': page.Label,
+    '/components/tabHeader': page.TabHeader,
   };
 
   const urlList = Object.keys(routes).map(item => ({

@@ -9,3 +9,4 @@ export { default as Pagination } from './pagination.page.svelte';
 export { default as List } from './list.page.svelte';
 export { default as Input } from './input.page.svelte';
 export { default as Label } from './label.page.svelte';
+export { default as TabHeader } from './tabHeader.page.svelte';
