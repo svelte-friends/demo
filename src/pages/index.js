@@ -10,3 +10,4 @@ export { default as List } from './list.page.svelte';
 export { default as Input } from './input.page.svelte';
 export { default as Label } from './label.page.svelte';
 export { default as TabHeader } from './tabHeader.page.svelte';
+export { default as DropDown } from './dropdown.page.svelte';
