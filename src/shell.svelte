@@ -16,6 +16,7 @@
     '/components/label': page.Label,
     '/components/tabHeader': page.TabHeader,
     '/components/dropdown': page.DropDown,
+    '/components/collapse': page.Collapse,
   };
 
   const urlList = Object.keys(routes).map(item => ({
