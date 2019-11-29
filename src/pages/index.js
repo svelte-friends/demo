@@ -11,3 +11,5 @@ export { default as Input } from './input.page.svelte';
 export { default as Label } from './label.page.svelte';
 export { default as TabHeader } from './tabHeader.page.svelte';
 export { default as DropDown } from './dropdown.page.svelte';
+export { default as Collapse } from './collapse.page.svelte';
+
