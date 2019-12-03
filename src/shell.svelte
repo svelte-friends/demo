@@ -17,6 +17,7 @@
     '/components/tabHeader': page.TabHeader,
     '/components/dropdown': page.DropDown,
     '/components/collapse': page.Collapse,
+    '/components/datatable': page.DataTable,
   };
 
   const urlList = Object.keys(routes).map(item => ({
