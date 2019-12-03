@@ -18,6 +18,7 @@
     'Default value',
   ];
   let theadTable = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
+  let theadTableCol = ['Column 1', 'Column 2', 'Column 3'];
   let tbodyComponent = [Button, Checkbox, Button];
   export let tbodyText = [
     ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
@@ -31,6 +32,13 @@
   ];
 
   let tbodyDescription = [
+     [
+      'col',
+      'Set the column total.',
+      'String',
+      'No',
+      '4',
+    ],
     [
       'striped',
       'Use "striped" to add zebra-striping to any row.',
@@ -96,26 +104,26 @@
       ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
       ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
     ];
-    <DataTable {thead} {tbody} />
+    <DataTable {thead} {tbody} col="4" />
   `;
 
   const CodeComponentOne = `
     import Button from './button.svelte';
     import Checkbox from './checkbox.svelte';
 
-    let thead = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
+    let thead = ['Column 1', 'Column 2', 'Column 3'];
     let tbody = [
       [Checkbox, 'Test 2', 'Test 3', Button],
       [Checkbox, 'Test 2', 'Test 3', Button],
       [Checkbox, 'Test 2', 'Test 3', Button],
     ];
-    <DataTable {thead} {tbody} />
+    <DataTable {thead} {tbody} col="4" />
   `;
   const CodeComponentTwo = `
     import Button from './button.svelte';
     import Checkbox from './checkbox.svelte';
 
-    let thead = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
+    let thead = ['Column 1', 'Column 2', 'Column 3'];
     let tbody = [
       [Checkbox, 'Test 2', 'Test 3', Button],
       [Checkbox, 'Test 2', 'Test 3', Button],
@@ -124,6 +132,7 @@
     <DataTable
       {thead}
       {tbody}
+      col="4" 
       colorTextHeader="#fff"
       colorbackgroundHeader="black"
       colorBackgroundBody="#353131"
@@ -135,7 +144,7 @@
     import Button from './button.svelte';
     import Checkbox from './checkbox.svelte';
 
-    let thead = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
+    let thead = ['Column 1', 'Column 2', 'Column 3'];
     let tbody = [
       [Checkbox, 'Test 2', 'Test 3', Button],
       [Checkbox, 'Test 2', 'Test 3', Button],
@@ -144,6 +153,7 @@
     <DataTable
       {thead}
       {tbody}
+      col="4" 
       colorbackgroundHeader="#DF364E"
       striped={false} />
   `;
@@ -161,6 +171,7 @@
     <DataTable
       {thead}
       {tbody}
+      col="4" 
       colorTextHeader="#fff"
       colorbackgroundHeader="black"
       colorBackgroundBody="#353131"
@@ -183,6 +194,7 @@
     <DataTable
       {thead}
       {tbody}
+      col="4" 
       colorTextHeader="#fff"
       colorbackgroundHeader="black"
       colorBackgroundBody="#353131"
@@ -199,7 +211,7 @@
     let thead = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
     let tbodyComponent = [Button, Button, Button];
 
-    <DataTable {thead} {tbodyComponent} />
+    <DataTable {thead} {tbodyComponent} col="4"  />
   `;
 </script>
 
@@ -209,13 +221,13 @@
   <Table col="3" {thead} tbody={tbodyDescription} />
   <Title size="h4" text="Basic" />
   <Example>
-    <DataTable thead={theadTable} tbody={tbodyText} />
+    <DataTable thead={theadTable} tbody={tbodyText} col="4" />
   </Example>
   <Code code={codeBasic} />
 
   <Title size="h4" text="Componets" />
   <Example>
-    <DataTable thead={theadTable} {tbody} />
+    <DataTable thead={theadTableCol} {tbody} col="4" />
   </Example>
   <Code code={CodeComponentOne} />
 
@@ -224,6 +236,7 @@
     <DataTable
       thead={theadTable}
       {tbody}
+      col="4"
       colorTextHeader="#fff"
       colorbackgroundHeader="black"
       colorBackgroundBody="#353131"
@@ -234,8 +247,9 @@
 
   <Example>
     <DataTable
-      thead={theadTable}
+      thead={theadTableCol}
       {tbody}
+      col="4"
       colorbackgroundHeader="#DF364E"
       striped={false} />
   </Example>
@@ -246,6 +260,7 @@
     <DataTable
       thead={theadTable}
       {tbody}
+      col="4"
       colorTextHeader="#fff"
       colorbackgroundHeader="black"
       colorBackgroundBody="#353131"
@@ -261,6 +276,7 @@
     <DataTable
       thead={theadTable}
       {tbody}
+      col="4"
       colorTextHeader="#fff"
       colorbackgroundHeader="black"
       colorBackgroundBody="#353131"
@@ -273,7 +289,7 @@
 
   <Title size="h4" text="Components" />
   <Example>
-    <DataTable thead={theadTable} {tbodyComponent} />
+    <DataTable thead={theadTable} {tbodyComponent} col="4"/>
   </Example>
   <Code code={CodeComponentSix} />
 
