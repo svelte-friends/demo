@@ -18,8 +18,22 @@
     'Default value',
   ];
   let theadTable = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
+
+  let theadTableOne = [
+    { label: 'Column 1' },
+    { label: 'Column 2' },
+    { label: 'Column 3' },
+    { label: 'Column 4' },
+  ];
+
+  let theadTableTwo = [
+    { label: '', width: '2%' },
+    { label: 'Column' },
+    { label: 'Column' },
+    { label: '', width: '5%' },
+  ];
+
   let theadTableCol = ['Column 1', 'Column 2', 'Column 3'];
-  let tbodyComponent = [Button, Checkbox, Button];
   export let tbodyText = [
     ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
     ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
@@ -32,13 +46,9 @@
   ];
 
   let tbodyDescription = [
-     [
-      'col',
-      'Set the column total.',
-      'String',
-      'No',
-      '4',
-    ],
+    ['border', 'Set the border.', 'Boolean', 'Yes', 'false'],
+    ['colorBorder', 'Define a color for border', 'Boolean', 'Yes', '#ddd'],
+    ['col', 'Set the column total.', 'String', 'No', '4'],
     [
       'striped',
       'Use "striped" to add zebra-striping to any row.',
@@ -107,6 +117,16 @@
     <DataTable {thead} {tbody} col="4" />
   `;
 
+  const codeBasicOne = `
+    let thead = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
+    let tbody = [
+      ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
+      ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
+      ['Test 1', 'Test 2', 'Test 3', 'Test 4'],
+    ];
+    <DataTable {thead} {tbody} col="4" border={true} colorBorder="#9054ff" />
+  `;
+
   const CodeComponentOne = `
     import Button from './button.svelte';
     import Checkbox from './checkbox.svelte';
@@ -153,7 +173,8 @@
     <DataTable
       {thead}
       {tbody}
-      col="4" 
+      col="4"
+      border={true} 
       colorbackgroundHeader="#DF364E"
       striped={false} />
   `;
@@ -208,8 +229,25 @@
     import Button from './button.svelte';
     import Checkbox from './checkbox.svelte';
 
-    let thead = ['Column 1', 'Column 2', 'Column 3', 'Column 4'];
-    let tbodyComponent = [Button, Button, Button];
+    Example: TrComponent.svelte
+    <tr>
+      <td>
+        <Checkbox />
+      </td>
+      <td>Test</td>
+      <td>Test</td>
+      <td>
+        <Button />
+      </td>
+    </tr>
+
+    let thead = [
+      { label: '', width: '2%' },
+      { label: 'Column' },
+      { label: 'Column' },
+      { label: '', width: '5%' },
+    ];
+    let tbodyComponent = [TrComponent, TrComponent, TrComponent];
 
     <DataTable {thead} {tbodyComponent} col="4"  />
   `;
@@ -220,21 +258,32 @@
   <Title size="h3" text="Attributes" />
   <Table col="3" {thead} tbody={tbodyDescription} />
   <Title size="h4" text="Basic" />
+
   <Example>
-    <DataTable thead={theadTable} tbody={tbodyText} col="4" />
+    <DataTable thead={theadTableOne} tbody={tbodyText} col="4" />
   </Example>
   <Code code={codeBasic} />
 
+  <Example>
+    <DataTable
+      border={true}
+      colorBorder="#9054ff"
+      thead={theadTableOne}
+      tbody={tbodyText}
+      col="4" />
+  </Example>
+  <Code code={codeBasicOne} />
+
   <Title size="h4" text="Componets" />
   <Example>
-    <DataTable thead={theadTableCol} {tbody} col="4" />
+    <DataTable thead={theadTableOne} {tbody} col="4" />
   </Example>
   <Code code={CodeComponentOne} />
 
   <Title size="h4" text="Colors" />
   <Example>
     <DataTable
-      thead={theadTable}
+      thead={theadTableOne}
       {tbody}
       col="4"
       colorTextHeader="#fff"
@@ -247,9 +296,10 @@
 
   <Example>
     <DataTable
-      thead={theadTableCol}
+      thead={theadTableTwo}
       {tbody}
       col="4"
+      border={true}
       colorbackgroundHeader="#DF364E"
       striped={false} />
   </Example>
@@ -258,7 +308,7 @@
   <Title size="h4" text="Align center" />
   <Example>
     <DataTable
-      thead={theadTable}
+      thead={theadTableOne}
       {tbody}
       col="4"
       colorTextHeader="#fff"
@@ -289,7 +339,12 @@
 
   <Title size="h4" text="Components" />
   <Example>
-    <DataTable thead={theadTable} {tbodyComponent} col="4"/>
+    <DataTable
+      thead={theadTableTwo}
+      {tbody}
+      col="4"
+      colorbackgroundHeader="#DF364E"
+      striped={false} />
   </Example>
   <Code code={CodeComponentSix} />
 
