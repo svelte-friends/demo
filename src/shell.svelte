@@ -18,6 +18,7 @@
     '/components/dropdown': page.DropDown,
     '/components/collapse': page.Collapse,
     '/components/datatable': page.DataTable,
+    '/components/stepper': page.Stepper,
   };
 
   const urlList = Object.keys(routes).map(item => ({
