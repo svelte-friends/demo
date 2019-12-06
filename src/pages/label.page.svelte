@@ -17,24 +17,32 @@
 
   let tbody = [
     ['text', 'We use to define a text.', 'String', 'false', 'Label'],
-    ['color', 'We use to define a color.', 'String', 'true', '#624695'],
-    ['type', 'We use to define a type.', 'String', 'true', 'fill or outline'],
+    ['colorLabel', 'We use to define a color.', 'String', 'true', '#624695'],
+    ['outline', 'We use to define the outline.', 'Parameter', 'true', ''],
   ];
 
   let codeDemoBasic = `
     <Label />
-    <Label text="One" />
+    <Label text = Sample/>
+    <Label text = TEXT/>
   `;
 
   let codeDemoColor = `
-    <Label color="blue" />
-    <Label color="green" />
-    <Label type="outline" color="red" />
+    <Label colorLabel = "blue"/>
+    <Label colorLabel = "green" text = "Sample"/>
+    <Label colorLabel =" red" text = "TEXT"/>
   `;
 
   let codeDemoSize = `
-    <Label />
-    <Label type="outline"/>
+    <Label outline/>
+    <Label outline text= "Sample"/>
+    <Label outline text= "TEXT"/>
+  `;
+
+  let codeOutlineColor = `
+    <Label outline colorLabel = "red"/>
+    <Label outline text="Sample" colorLabel = "#00e358"/>
+    <Label outline text="TEXT" colorLabel = "black"/>
   `;
 </script>
 
@@ -46,23 +54,33 @@
   <Title size="h4" text="Basic" />
   <Example>
     <Label />
-    <Label text="One" />
+    <Label text = Sample/>
+    <Label text = TEXT/>
   </Example>
   <Code code={codeDemoBasic} />
 
   <Title size="h4" text="Colors" />
   <Example>
-    <Label color="blue" />
-    <Label color="green" />
-    <Label type="outline" color="red" />
+    <Label colorLabel ="blue"/>
+    <Label colorLabel ="green" text="Sample"/>
+    <Label colorLabel="red" text="TEXT"/>
   </Example>
   <Code code={codeDemoColor} />
 
-  <Title size="h4" text="Type" />
+  <Title size="h4" text="Outline" />
   <Example>
-    <Label />
-    <Label type="outline" />
+    <Label outline/>
+    <Label outline text="Sample"/>
+    <Label outline text="TEXT"/>
   </Example>
   <Code code={codeDemoSize} />
+
+  <Title size="h4" text="Outline Colors" />
+  <Example>
+    <Label outline colorLabel="red"/>
+    <Label outline text="Sample" colorLabel="#00e358"/>
+    <Label outline text="TEXT" colorLabel="black"/>
+  </Example>
+  <Code code={codeOutlineColor} />
 
 </BasePage>

@@ -14,6 +14,12 @@
     '/components/list': page.List,
     '/components/input': page.Input,
     '/components/label': page.Label,
+    '/components/tabHeader': page.TabHeader,
+    '/components/dropdown': page.DropDown,
+    '/components/collapse': page.Collapse,
+    '/components/datatable': page.DataTable,
+    '/components/drawer': page.Drawer,
+    '/components/stepper': page.Stepper,
   };
 
   const urlList = Object.keys(routes).map(item => ({
