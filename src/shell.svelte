@@ -18,7 +18,6 @@
     '/components/dropdown': page.DropDown,
     '/components/collapse': page.Collapse,
     '/components/datatable': page.DataTable,
-    '/components/drawer': page.Drawer,
     '/components/stepper': page.Stepper,
   };
 
