@@ -1,30 +1,14 @@
 <script>
   import Router from 'svelte-spa-router';
   import * as page from './pages';
+  let routes = {};
 
-  const routes = {
-    '/components/button': page.Button,
-    '/components/checkbox': page.Checkbox,
-    '/components/switch': page.Switch,
-    '/components/progressRing': page.ProgressRing,
-    '/components/radio': page.Radio,
-    '/components/progressBar': page.ProgressBar,
-    '/components/dotLabel': page.DotLabel,
-    '/components/pagination': page.Pagination,
-    '/components/list': page.List,
-    '/components/input': page.Input,
-    '/components/label': page.Label,
-    '/components/tabHeader': page.TabHeader,
-    '/components/dropdown': page.DropDown,
-    '/components/collapse': page.Collapse,
-    '/components/datatable': page.DataTable,
-    '/components/stepper': page.Stepper,
-  };
-
-  const urlList = Object.keys(routes).map(item => ({
-    name: item.replace(/\/components\//, ''),
-    path: item,
-  }));
+  Object.keys(page).sort().forEach(element => {
+    routes = {
+      ...routes,
+      [`/component/${element}`]: page[element],
+    }
+  });
 </script>
 
 <style>
@@ -71,9 +55,9 @@
 
 <div class="shell">
   <ul class="list">
-    {#each urlList as url}
+    {#each Object.keys(routes) as url}
       <li>
-        <a href="#{url.path}">{url.name}</a>
+        <a href="#{url}">{url.replace(/\/component\//, '')}</a>
       </li>
     {/each}
   </ul>
