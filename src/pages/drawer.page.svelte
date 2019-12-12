@@ -28,7 +28,6 @@
   ];
 
   let tbody = [
-    ['show', 'Define if drawer is showned or not', 'Boolean', '', 'false'],
     [
       'persistent',
       'Define if drawer overflow page content or  sits on the same surface as the content',
@@ -46,27 +45,10 @@
       }
     <\/script>
 
-    <style>
-    .container {
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-    }
-    .container > * {
-      height: 50px;
-      background: #cecece;
-      border: 2px solid blueviolet;
-    }
-    </style>
-
-    <Button text={show ? 'Close' : 'Open'} on:click={handleClick} />
+    <Button text={show ? 'Close Drawer' : 'Open Drawer'} on:click={handleClick} />
 
     <Drawer {show} on:close={handleClick}>
-      <div class='container'>
-        {#each ['Item 1', 'Item 2', 'Item 3'] as item}
-          <span>{item}</span>
-        {/each}
-      </div>
+      <!-- YOUR CONTENT HERE -->
     </Drawer>
   `;
 
@@ -78,27 +60,10 @@
       }
     <\/script>
 
-    <style>
-    .container {
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-    }
-    .container > * {
-      height: 50px;
-      background: #cecece;
-      border: 2px solid blueviolet;
-    }
-    </style>
-
-    <Button text={show ? 'Close' : 'Open'} on:click={handleClick} />
+    <Button text={show ? 'Close Drawer' : 'Open Drawer'} on:click={handleClick} />
 
     <Drawer {show} on:close={handleClick} persistent>
-      <div class='container'>
-        {#each ['Item 1', 'Item 2', 'Item 3'] as item}
-          <span>{item}</span>
-        {/each}
-      </div>
+      <!-- YOUR CONTENT HERE -->
     </Drawer>
   `;
 </script>
@@ -115,6 +80,11 @@
     background: #cecece;
     border: 2px solid blueviolet;
   }
+
+  .example-persistent {
+    display: flex;
+    height: 200px;
+  }
 </style>
 
 <BasePage>
@@ -124,27 +94,35 @@
 
   <Title size="h5" text="Basic" />
   <Example>
-    <Button text={basicShow ? 'Close' : 'Open'} on:click={clickBasic} />
-    <Drawer show={basicShow} on:close={clickBasic}>
-      <div class='container'>
-        {#each ['Item 1', 'Item 2', 'Item 3'] as item}
-          <span>{item}</span>
-        {/each}
-      </div>
-    </Drawer>
+    <Button
+      text={basicShow ? 'Close Drawer' : 'Open Drawer'}
+      on:click={clickBasic} />
+    {#if basicShow}
+      <Drawer show={basicShow} on:close={clickBasic}>
+        <div class="container">
+          {#each ['Item 1', 'Item 2', 'Item 3'] as item}
+            <span>{item}</span>
+          {/each}
+        </div>
+      </Drawer>
+    {/if}
   </Example>
   <Code code={basicCode} />
 
   <Title size="h5" text="Persistent" />
-  <Example>
-    <Button text={persistentShow ? 'Close' : 'Open'} on:click={clickPersistent} />
-    <Drawer show={persistentShow} on:close={clickPersistent} persistent>
-      <div class='container'>
-        {#each ['Item 1', 'Item 2', 'Item 3'] as item}
-          <span>{item}</span>
-        {/each}
-      </div>
-    </Drawer>
-  </Example>
+  <div class="example-persistent">
+    {#if persistentShow}
+      <Drawer show={persistentShow} on:close={clickPersistent} persistent>
+        <div class="container">
+          {#each ['Item 1', 'Item 2', 'Item 3'] as item}
+            <span>{item}</span>
+          {/each}
+        </div>
+      </Drawer>
+    {/if}
+    <Button
+      text={persistentShow ? 'Close Drawer' : 'Open Drawer'}
+      on:click={clickPersistent} />
+  </div>
   <Code code={persistentCode} />
 </BasePage>
