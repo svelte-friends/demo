@@ -15,3 +15,4 @@ export { default as Collapse } from './collapse.page.svelte';
 export { default as DataTable } from './dataTable.page.svelte';
 export { default as Stepper } from './stepper.page.svelte';
 export { default as Drawer } from './drawer.page.svelte';
+export { default as Modal } from './modal.page.svelte';
