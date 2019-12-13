@@ -1,31 +1,16 @@
 <script>
-  import Router from 'svelte-spa-router';
+  import Router, { location } from 'svelte-spa-router';
   import * as page from './pages';
+  let routes = {};
 
-  const routes = {
-    '/components/button': page.Button,
-    '/components/checkbox': page.Checkbox,
-    '/components/switch': page.Switch,
-    '/components/progressRing': page.ProgressRing,
-    '/components/radio': page.Radio,
-    '/components/progressBar': page.ProgressBar,
-    '/components/dotLabel': page.DotLabel,
-    '/components/pagination': page.Pagination,
-    '/components/list': page.List,
-    '/components/input': page.Input,
-    '/components/label': page.Label,
-    '/components/tabHeader': page.TabHeader,
-    '/components/dropdown': page.DropDown,
-    '/components/collapse': page.Collapse,
-    '/components/datatable': page.DataTable,
-    '/components/drawer': page.Drawer,
-    '/components/stepper': page.Stepper,
-  };
-
-  const urlList = Object.keys(routes).map(item => ({
-    name: item.replace(/\/components\//, ''),
-    path: item,
-  }));
+  Object.keys(page)
+    .sort()
+    .forEach(element => {
+      routes = {
+        ...routes,
+        [`/component/${element}`]: page[element],
+      };
+    });
 </script>
 
 <style>
@@ -52,18 +37,35 @@
   }
 
   .list li {
-    margin: 0;
-    padding: 5px;
+    height: 40px;
+    padding: 0 5px;
+    display: flex;
+    font-size: 18px;
+  }
+
+  .list li:hover {
+    background-color: #ff833a;
   }
 
   .list a {
-    text-transform: capitalize;
     text-decoration: none;
     outline: none;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
     color: rgba(0, 0, 0, 0.65);
   }
 
   .list a:hover {
+    font-weight: 800;
+  }
+
+  .active {
+    background: #e65100;
+  }
+
+  .active a {
+    color: #fff;
     font-weight: 800;
   }
 
@@ -72,9 +74,9 @@
 
 <div class="shell">
   <ul class="list">
-    {#each urlList as url}
-      <li>
-        <a href="#{url.path}">{url.name}</a>
+    {#each Object.keys(routes) as url}
+      <li class:active={url === $location}>
+        <a href="#{url}">{url.replace(/\/component\//, '')}</a>
       </li>
     {/each}
   </ul>
