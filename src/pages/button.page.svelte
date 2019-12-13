@@ -39,8 +39,7 @@
   ];
 
   const basic = `
-    <Button />
-    <Button>Click here</Button>
+    <Button>Basic button</Button>
   `;
   const colors = `
     <Button color="blue">Color blue</Button>
@@ -53,11 +52,9 @@
     <Button big>Big button</Button>
   `;
   const pill = `
-    <Button pill />
     <Button pill>Pill button</Button>
   `;
   const outline = `
-    <Button outline />
     <Button outline color="blue">Outline blue</Button>
     <Button outline color="blue" hover="yellow">Outline yellow</Button>
     <Button outline color="blue" hover="yellow" active="red">Outline all</Button>
@@ -68,6 +65,12 @@
     <Button full color="blue">Full</Button>
     <Button outline full color="blue">Full outine</Button>
     <Button pill full color="blue">Full pill</Button>
+  `;
+
+  const disabled = `
+    <Button disabled>Disabled</Button>
+    <Button disabled pill>Pill disabled</Button>
+    <Button disabled outline>Outline disabled</Button>
   `;
 
   const custom = `
@@ -85,7 +88,6 @@
 <style>
   .custom-button {
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -115,8 +117,7 @@
 
   <Title size="h4" text="Basic" />
   <Example>
-    <Button />
-    <Button>Click here</Button>
+    <Button>Basic button</Button>
   </Example>
   <Code code={basic} />
 
@@ -138,14 +139,12 @@
 
   <Title size="h4" text="Pill" />
   <Example>
-    <Button pill />
     <Button pill>Pill button</Button>
   </Example>
   <Code code={pill} />
 
   <Title size="h4" text="Outline" />
   <Example>
-    <Button outline />
     <Button outline color="blue">Outline blue</Button>
     <Button outline color="blue" hover="yellow">Outline yellow</Button>
     <Button outline color="blue" hover="yellow" active="red">
@@ -156,12 +155,19 @@
 
   <Title size="h4" text="Full" />
   <Example>
-    <Button full />
     <Button full color="blue">Full</Button>
     <Button outline full color="blue">Full outine</Button>
     <Button pill full color="blue">Full pill</Button>
   </Example>
   <Code code={full} />
+
+  <Title size="h4" text="Disabled" />
+  <Example>
+    <Button disabled>Disabled</Button>
+    <Button disabled pill>Pill disabled</Button>
+    <Button disabled outline>Outline disabled</Button>
+  </Example>
+  <Code code={disabled} />
 
   <Title size="h4" text="Custom" />
   <Example>
